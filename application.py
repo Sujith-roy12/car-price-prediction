@@ -1,9 +1,16 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
+import pickle
 
-# Load the trained model
-model = pickle.load(open("LinearReg.pkl", "rb"))
+# Get the path of the current script
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "LinearReg.pkl")
+
+# Load the model
+with open(MODEL_PATH, "rb") as f:
+    model = pickle.load(f)
+
 
 st.title("🚗 Car Price Prediction App")
 
